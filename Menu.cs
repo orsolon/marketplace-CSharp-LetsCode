@@ -9,19 +9,22 @@ namespace Project2
             Console.WriteLine("Bem vindo ao marketplace");
             Console.WriteLine("Digite o número da opção desejada: ");
             Console.WriteLine("1 - Cadastrar Novo Usuário");
-            Console.WriteLine("1 - Cadastrar Novo Vendedor");
-            Console.WriteLine("1 - Cadastrar Novo Cliente");
-            Console.WriteLine("1 - Buscar Usuário");
-            Console.WriteLine("1 - Buscar Vendedor");
-            Console.WriteLine("1 - Buscar Cliente");
-            Console.WriteLine("1 - Atualizar dados Usuário");
-            Console.WriteLine("1 - Atualizar dados Vendedor");
-            Console.WriteLine("1 - Atualizar dados Cliente");
-            Console.WriteLine("1 - Deletar dados Usuário");
-            Console.WriteLine("1 - Deletar dados Vendedor");
-            Console.WriteLine("1 - Deletar dados Cliente");
-            Console.WriteLine("1 - Sair");
-            Console.WriteLine("Opção");
+            Console.WriteLine("2 - Cadastrar Novo Vendedor");
+            Console.WriteLine("3 - Cadastrar Novo Cliente");
+            Console.WriteLine("4 - Buscar Usuário");
+            Console.WriteLine("5 - Buscar Vendedor");
+            Console.WriteLine("6 - Buscar Cliente");
+            Console.WriteLine("7 - Atualizar dados Usuário");
+            Console.WriteLine("8 - Atualizar dados Vendedor");
+            Console.WriteLine("9 - Atualizar dados Cliente");
+            Console.WriteLine("10 - Deletar dados Usuário");
+            Console.WriteLine("11 - Deletar dados Vendedor");
+            Console.WriteLine("12 - Deletar dados Cliente");
+            Console.WriteLine("13 - Listar dados Usuário");
+            Console.WriteLine("14 - Listar dados Vendedor");
+            Console.WriteLine("15 - Listar dados Cliente");
+            Console.WriteLine("16 - Sair");
+            Console.WriteLine("Opção: ");
             return Console.ReadLine();    
             
         }
@@ -32,6 +35,7 @@ namespace Project2
             {
                case 1:
                     Console.WriteLine("Caso 01");
+                    Create.CreateUser();
                     break;
                 case 2:
                     Console.WriteLine("Caso 02");
@@ -67,7 +71,8 @@ namespace Project2
                     Console.WriteLine("Caso 12");
                     break;
                 case 13:
-                    Console.WriteLine("Caso 13");
+                    Console.WriteLine("Listar Usuarios");
+                    DataBase.Users.ForEach(user => Console.WriteLine(user));
                     break;
                 default:
                     Console.WriteLine("Opção Inválida, tente novamente");
@@ -78,8 +83,7 @@ namespace Project2
 
         public void GeneralMenuOption() {
             string _option = GeneralMenu();
-            int _optionInt;
-            bool _optionToInt = Int32.TryParse(_option, out _optionInt);
+            bool _optionToInt = Int32.TryParse(_option, out var _optionInt);
             if (_optionToInt)
                 Option(_optionInt);
             else
